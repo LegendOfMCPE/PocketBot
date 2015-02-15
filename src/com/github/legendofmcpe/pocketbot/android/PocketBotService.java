@@ -36,7 +36,7 @@ public class PocketBotService extends Service{
 				PocketBot bot = new PocketBot(name, fullAddress,
 						new Console(this), new MLang(this),
 						username, new Random().nextLong());
-				bot.start();
+				new Thread(bot).start();
 				bots.put(name, bot);
 			}
 			catch(UnknownHostException e){
