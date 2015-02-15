@@ -27,8 +27,8 @@ public abstract class ReceivedRaknetPacket implements Constants{
 		parser.registerPacketType(OPEN_CONNECTION_REPLY_1, OpenConnectionReply1.class);
 		parser.registerPacketType(OPEN_CONNECTION_REPLY_2, OpenConnectionReply2.class);
 		parser.registerPacketType(INCOMPATIBLE_PROTOCOL_VERSION, IncompatibleProtocolVersion.class);
-		for(byte  i = (byte) 0x80; i <= 0x8F; i++){
-			parser.registerPacketType(i, ReceivedCustomPacket.class);
+		for(int i = 0x80; i <= 0x8F; i++) {
+			parser.registerPacketType((byte)i, ReceivedCustomPacket.class);
 		}
 	}
 	protected int getTriad(){

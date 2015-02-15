@@ -24,7 +24,7 @@ public abstract class SentRaknetPacket implements Constants{
 		bb.put(getPid());
 		encode();
 		byte[] buffer = bb.array();
-		sk.send(new DatagramPacket(buffer, buffer.length));
+		sk.send(new DatagramPacket(buffer, buffer.length, addr));
 	}
 	public void putTriad(int i){
 		BinaryWriter bw = new BinaryWriter(3, true);

@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.github.legendofmcpe.pocketbot.packet.NetworkManager;
 
-public class PocketBot extends Thread{
+public class PocketBot implements Runnable {
 	private InetSocketAddress address;
 	private NetworkManager networkMgr;
 	private Logger logger;
@@ -18,9 +18,9 @@ public class PocketBot extends Thread{
 	private short mtu = Short.MAX_VALUE;
 
 	public PocketBot(String name, InetSocketAddress address, Logger logger, Lang lang, String username, long clientId){
-		super("PocketBot_".concat(name));
 		this.address = address;
 		this.logger = logger;
+		this.lang = lang;
 		this.username = username;
 		this.clientId = clientId;
 		networkMgr = new NetworkManager(this);
